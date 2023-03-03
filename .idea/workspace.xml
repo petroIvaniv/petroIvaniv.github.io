@@ -13,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ihor" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,12 +27,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="ihor" />
-                    <option name="lastUsedInstant" value="1677861867" />
+                    <option name="branchName" value="QWE-763" />
+                    <option name="lastUsedInstant" value="1677862139" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="development" />
-                    <option name="lastUsedInstant" value="1677861824" />
+                    <option name="lastUsedInstant" value="1677861887" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -77,7 +77,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677861228771</updated>
-      <workItem from="1677861230038" duration="586000" />
+      <workItem from="1677861230038" duration="870000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1677861506637</created>
