@@ -2,6 +2,7 @@ export const AppRoutes = {
     MAIN: '/',
     INFO: 'info',
     USERS: 'users',
-    PROFILE: 'users/:userId'
+    PROFILE: 'users/:userId',
+    Dimasichock: 'Dimasichock',
 
 }
