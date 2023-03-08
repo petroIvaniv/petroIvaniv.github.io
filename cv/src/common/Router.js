@@ -1,13 +1,17 @@
 import{ createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/Main/Main";
 import Header from "../components/Header/Header";
-import Yaryna from '../pages/yaryna/yaryna';
+import Yaryna from '../pages/Yaryna/yaryna';
 import { AppRoutes } from "./AppRoutes";
 import Dimasichock from "../pages/Dimasichock/Dimasichock";
-import { AdminRoute, PrivateRoute, PublicRoute } from "../components/HOC/ROuteHOCs";
+import { AdminRoute, PrivateRoute, PublicRoute, YarynaRoute, GuestRoute, NotYarynaRoute } from "../components/HOC/ROuteHOCs";
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
 import Admin from "../pages/Admin/Admin";
+import MyLogin from "../pages/Yaryna/MyLogin/MyLogin";
+import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
+// import Cancel from "../pages/Yaryna/GuestView/GuestView";
+import GuestView from "../pages/Yaryna/GuestView/GuestView";
 
 export const router = createBrowserRouter([
     {
@@ -22,9 +26,18 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.YARYNA,
                 element: <Yaryna />,
-                children: [{
-
-                }]
+                // children: [{
+                //     path: AppRoutes.MYLOGIN,
+                //     element: <YarynaRoute Component={MyLogin}/>,
+                // },]
+                // {
+                //     path: AppRoutes.NOTMYLOGIN,
+                //     element: <AdminRoute  Component={NotMyLogin}/> ,
+                // },]
+                // {
+                //     path: AppRoutes.USER,
+                //     element: <PrivateRoute Component={User}/>,
+                // },]
             }
         ]
     },
@@ -48,4 +61,16 @@ export const router = createBrowserRouter([
         path: AppRoutes.USER,
         element: <PrivateRoute Component={User}/>,
     },
+    {
+        path: AppRoutes.MYLOGIN,
+        element: <YarynaRoute Component={MyLogin}/>,
+    },
+    {
+        path: AppRoutes.NOTMYLOGIN,
+        element: <NotYarynaRoute Component={NotMyLogin}/>,
+    },
+    {
+        path: AppRoutes.VIEW,
+        element: <GuestRoute Component={GuestView}/>,
+    }
 ]);
