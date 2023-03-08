@@ -1,16 +1,19 @@
 import styles from './Header.module.scss'
-import '../../yaryna/yaryna.scss'
+import '../../pages/yaryna/yaryna.scss'
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../common/AppRoutes";
 const Header = () => {
-    console.log('header')
-
+    const authUser = JSON.parse(localStorage.getItem('authUser'))
     return  (
         <div className={styles.container}>
+            <Link to={AppRoutes.MAIN}> MAin</Link>
             <Link to={AppRoutes.INFO}> Info</Link>
             <Link to ={AppRoutes.Dimasichock}>Dimasichock</Link>
             <br/>
             <Link to={AppRoutes.YARYNA}> Check who is Yaryna</Link>
+            <Link to={AppRoutes.ADMIN}> ADMIN</Link>
+            <Link to={AppRoutes.LOGIN}> LOGIN</Link>
+            <Link to={`/user/${authUser?.id}`}> USER</Link>
         </div>
     )
 }
