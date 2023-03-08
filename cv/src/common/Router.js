@@ -1,6 +1,7 @@
 import{ createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/Main/Main";
 import Header from "../components/Header/Header";
+import Yaryna from '../yaryna/yaryna';
 import { AppRoutes } from "./AppRoutes";
 
 export const router = createBrowserRouter([
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.PROFILE,
                 element: <h1>USER ID</h1>,
+            },
+            {
+                path: AppRoutes.YARYNA,
+                element: <Yaryna />,
             }
         ]
     },
