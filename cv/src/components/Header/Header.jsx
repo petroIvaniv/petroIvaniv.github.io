@@ -7,6 +7,7 @@ const Header = () => {
     return  (
         <div className={styles.container}>
             <Link to={AppRoutes.INFO}> Info</Link>
+            <Link to ={AppRoutes.Dimasichock}>Dimasichock</Link>
         </div>
     )
 }
