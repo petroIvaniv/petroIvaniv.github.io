@@ -4,5 +4,5 @@ export const AppRoutes = {
     USERS: 'users',
     PROFILE: 'users/:userId',
     Dimasichock: 'Dimasichock',
-
+    YARYNA: '/Yara'
 }

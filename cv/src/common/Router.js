@@ -1,6 +1,7 @@
 import{ createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/Main/Main";
 import Header from "../components/Header/Header";
+import Yaryna from '../yaryna/yaryna';
 import { AppRoutes } from "./AppRoutes";
 import Dimasichock from "../components/Dimasichock/Dimasichock";
 
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.Dimasichock,
                 element:<Dimasichock />
+            },
+            {
+                path: AppRoutes.YARYNA,
+                element: <Yaryna />,
             }
         ]
     },
