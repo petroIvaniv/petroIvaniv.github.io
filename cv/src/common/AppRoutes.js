@@ -3,5 +3,6 @@ export const AppRoutes = {
     INFO: 'info',
     USERS: 'users',
     PROFILE: 'users/:userId',
+    Dimasichock: 'Dimasichock',
     YARYNA: '/Yara'
 }
