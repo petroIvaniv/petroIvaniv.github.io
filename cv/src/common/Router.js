@@ -8,6 +8,7 @@ import { AdminRoute, PrivateRoute, PublicRoute } from "../components/HOC/ROuteHO
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
 import Admin from "../pages/Admin/Admin";
+import Andriy from "../pages/Andriy/Andriy";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
                 children: [{
 
                 }]
+            },
+            {
+                path:AppRoutes.Andriy,
+                element:<Andriy/>
             }
         ]
     },
