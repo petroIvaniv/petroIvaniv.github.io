@@ -8,6 +8,7 @@ const Header = () => {
     return  (
         <div className={styles.container}>
             <Link to={AppRoutes.MAIN}> MAin</Link>
+            <Link to={AppRoutes.MENTOR}> MENTOR</Link>
             <Link to={AppRoutes.INFO}> Info</Link>
             <Link to ={AppRoutes.Dimasichock}>Dimasichock</Link>
             <br/>

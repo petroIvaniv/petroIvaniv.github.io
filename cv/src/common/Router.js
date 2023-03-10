@@ -21,6 +21,7 @@ import MyLogin from "../pages/Yaryna/MyLogin/MyLogin";
 import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 // import Cancel from "../pages/Yaryna/GuestView/GuestView";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
+import Mentor from "../pages/Mentor/Mentor";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.YEVHEN,
                 element: <Yevhen />
+            },
+            {
+                path: AppRoutes.MENTOR,
+                element: <Mentor />
             }
         ]
     },

@@ -11,11 +11,11 @@ const logout = () => localStorage.removeItem('authUser')
     return (<div>
         <Header />
         <h1>MAin page</h1>
-        <button type='button' onClick={()=>login('user')}>LOGIN AS USER</button>
-        <br/>
-        <button type='button' onClick={()=>login('admin')}>LOGIN AS ADMIN</button>
-        <br/>
-        <button type='button' onClick={logout}>LOGOUT</button>
+        {/*<button type='button' onClick={()=>login('user')}>LOGIN AS USER</button>*/}
+        {/*<br/>*/}
+        {/*<button type='button' onClick={()=>login('admin')}>LOGIN AS ADMIN</button>*/}
+        {/*<br/>*/}
+        {/*<button type='button' onClick={logout}>LOGOUT</button>*/}
         <Outlet />
     </div>)
 }

@@ -11,4 +11,6 @@ export const AppRoutes = {
     MYLOGIN: '/yara/welcome',
     NOTMYLOGIN: '/yara/guest',
     VIEW: '/yara/view',
+    MENTOR: '/mentor',
+    MENTOR_HOC: '/mentor/hoc'
 }
