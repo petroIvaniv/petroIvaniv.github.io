@@ -16,6 +16,7 @@ import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
 import Admin from "../pages/Admin/Admin";
 import Andriy from "../pages/Andriy/Andriy";
+import Yevhen from "../pages/Yevhen/Yevhen";
 import MyLogin from "../pages/Yaryna/MyLogin/MyLogin";
 import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 // import Cancel from "../pages/Yaryna/GuestView/GuestView";
@@ -52,7 +53,10 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.Andriy,
                 element: <Andriy/>
-
+            },
+            {
+                path: AppRoutes.YEVHEN,
+                element: <Yevhen />
             }
         ]
     },
