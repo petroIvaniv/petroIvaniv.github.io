@@ -23,3 +23,18 @@ export const AdminRoute = ({Component}) => {
             ? <Navigate to={`/user/${authUser?.id}`}/>
             :  <Navigate to={AppRoutes.MAIN}/>
 }
+
+export const YarynaRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ==="Yaryna" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const NotYarynaRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ==="guest" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const GuestRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ? <Component user={user}/>  : <Component user={user}/>
+}

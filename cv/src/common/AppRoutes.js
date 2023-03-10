@@ -7,4 +7,7 @@ export const AppRoutes = {
     LOGIN: '/login',
     ADMIN: '/admin',
     USER: '/user/:userId',
+    MYLOGIN: '/yara/welcome',
+    NOTMYLOGIN: '/yara/guest',
+    VIEW: '/yara/view',
 }
