@@ -3,6 +3,7 @@ export const AppRoutes = {
     INFO: '/info',
     Dimasichock: '/dimasichock',
     YARYNA: '/yara',
+    Andriy:'/andriy',
     LOGIN: '/login',
     ADMIN: '/admin',
     USER: '/user/:userId',
