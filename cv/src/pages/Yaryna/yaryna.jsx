@@ -2,6 +2,7 @@ import React from "react";
 // import avatar from './me.jpeg';
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../common/AppRoutes";
+import { Outlet } from "react-router-dom";
 
 const Yaryna = () => {
     const logout = () => localStorage.removeItem('user')
@@ -11,7 +12,7 @@ const Yaryna = () => {
     return (
         <div className="container-Yara">
             <h1 className="title">Hi, please login</h1>
-            <button type='button' className="button" onClick={()=>login('yaryna')}>LOGIN AS YARYNA</button>
+            <button type='button' className="button" onClick={()=>login('Yaryna')}>LOGIN AS YARYNA</button>
             <button type='button' className="button" onClick={()=>login('guest')}>LOGIN AS GUEST</button>
             <button  type='button' className="button" onClick={logout}>LOGOUT</button>
             {/* <img src={avatar} /> */}
@@ -20,7 +21,8 @@ const Yaryna = () => {
                 <Link to={AppRoutes.NOTMYLOGIN}> I'm not Yaryna</Link>
                 <Link to={AppRoutes.VIEW}> I want just check a photo</Link>
             </div>
-            </div>
+            <Outlet />
+        </div>
     )
 }
   export default Yaryna

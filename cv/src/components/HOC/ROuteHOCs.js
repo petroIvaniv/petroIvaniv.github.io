@@ -26,7 +26,7 @@ export const AdminRoute = ({Component}) => {
 
 export const YarynaRoute = ({Component}) => {
     const user = JSON.parse(localStorage.getItem('user'))
-    return user?.role ==="yaryna" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+    return user?.role ==="Yaryna" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
 }
 
 export const NotYarynaRoute = ({Component}) => {
