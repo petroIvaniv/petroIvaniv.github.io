@@ -1,0 +1,51 @@
+.positiveNum {
+    font-size: 50px;
+    color: green;
+}
+
+.negativeNum {
+    font-size: 50px;
+    color: red;
+}
+
+.btns {
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnPlus {
+    width: 80px;
+    height: 30px;
+    background-color: green;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.btnMinus {
+    width: 80px;
+    height: 30px;
+    background-color: red;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.btnMultiply {
+    width: 80px;
+    height: 30px;
+    background-color: lawngreen;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.btnDivide {
+    width: 80px;
+    height: 30px;
+    background-color: orange;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
