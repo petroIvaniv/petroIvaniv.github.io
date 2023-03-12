@@ -22,6 +22,7 @@ import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 // import Cancel from "../pages/Yaryna/GuestView/GuestView";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import Mentor from "../pages/Mentor/Mentor";
+import Orest from "../pages/Orest/Orest"
 
 export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.MENTOR,
                 element: <Mentor />
+            },
+            {
+                path: AppRoutes.OREST,
+                element: <Orest/>
             }
         ]
     },

@@ -15,6 +15,7 @@ const Header = () => {
             <Link to={AppRoutes.YARYNA}> Check who is Yaryna</Link>
             <Link to={AppRoutes.Andriy}>Andriy</Link>
             <Link to={AppRoutes.YEVHEN}>Yevhen</Link>
+            <Link to={AppRoutes.OREST}>Orest</Link>
             <br/>
             <Link to={AppRoutes.ADMIN}> ADMIN</Link>
             <Link to={AppRoutes.LOGIN}> LOGIN</Link>
