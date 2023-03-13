@@ -13,11 +13,17 @@ const UserComp = ({user, handleClick}) => {
 
 export default UserComp
 
-export const Comp = React.memo(({name}) => {
+export const Comp = React.memo(({name, users, handleClick}) => {
 
     return (
         <div>
             <h1>{name}</h1>
+            {users?.map((user,index) =>
+                <UserComp
+                    key={user.name}
+                    user={user}
+                    handleClick={handleClick}
+                />)}
         </div>
     )
 });

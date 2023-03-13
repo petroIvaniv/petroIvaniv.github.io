@@ -23,6 +23,7 @@ import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import Mentor from "../pages/Mentor/Mentor";
 import Orest from "../pages/Orest/Orest"
+import {Comp} from "../pages/Mentor/components/User/User";
 
 export const router = createBrowserRouter([
     {
@@ -62,7 +63,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.MENTOR,
-                element: <Mentor />
+                element: <Mentor Component={Comp} form={true}/>
             },
             {
                 path: AppRoutes.OREST,
