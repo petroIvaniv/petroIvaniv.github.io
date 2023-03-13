@@ -26,6 +26,8 @@ import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import Mentor from "../pages/Mentor/Mentor";
 import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
+import Orest from "../pages/Orest/Orest"
+import {Comp} from "../pages/Mentor/components/User/User";
 
 export const router = createBrowserRouter([
     {
@@ -76,7 +78,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.MENTOR,
-                element: <Mentor />
+                element: <Mentor Component={Comp} form={true}/>
+            },
+            {
+                path: AppRoutes.OREST,
+                element: <Orest/>
             }
         ]
     },

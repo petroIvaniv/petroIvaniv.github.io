@@ -14,5 +14,6 @@ export const AppRoutes = {
     ANDRIYLOGIN:'/andriy/login',
     GUESTLOGIN:'/andriy/guest',
     MENTOR: '/mentor',
-    MENTOR_HOC: '/mentor/hoc'
+    MENTOR_HOC: '/mentor/hoc',
+    OREST: '/orest'
 }
