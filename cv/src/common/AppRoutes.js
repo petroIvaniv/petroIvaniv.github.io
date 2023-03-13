@@ -11,6 +11,8 @@ export const AppRoutes = {
     MYLOGIN: '/yara/welcome',
     NOTMYLOGIN: '/yara/guest',
     VIEW: '/yara/view',
+    ANDRIYLOGIN:'/andriy/login',
+    GUESTLOGIN:'/andriy/guest',
     MENTOR: '/mentor',
     MENTOR_HOC: '/mentor/hoc',
     OREST: '/orest'
