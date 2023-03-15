@@ -13,5 +13,8 @@ export const AppRoutes = {
     VIEW: '/yara/view',
     MENTOR: '/mentor',
     MENTOR_HOC: '/mentor/hoc',
-    OREST: '/orest'
+    OREST: '/orest',
+    ADMIN: '/dimasichock/admin',
+    FAKESTUDENT: '/dimasichock/fake',
+    STUDENT: '/dimasichock/student',
 }

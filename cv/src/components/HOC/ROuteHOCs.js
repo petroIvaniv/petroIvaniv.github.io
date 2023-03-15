@@ -38,3 +38,17 @@ export const GuestRoute = ({Component}) => {
     const user = JSON.parse(localStorage.getItem('user'))
     return user?.role ? <Component user={user}/>  : <Component user={user}/>
 }
+export const DimasichockRouter = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ==="Dimasichock" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const FakeStudentRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ==="Student" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const StudentRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ? <Component user={user}/>  : <Component user={user}/>
+}
