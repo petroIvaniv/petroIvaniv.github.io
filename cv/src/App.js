@@ -8,5 +8,4 @@ function App() {
         <RouterProvider router={router} />
     );
 }
-<orest/>
 export default App;

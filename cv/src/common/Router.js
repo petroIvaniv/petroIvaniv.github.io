@@ -23,6 +23,14 @@ import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import Mentor from "../pages/Mentor/Mentor";
 import Orest from "../pages/Orest/Orest"
+import OUser from "../pages/Orest/OUser/OUser";
+import OAdmin from "../pages/Orest/OAdmin/OAdmin";
+import WrongSite from "../pages/Orest/WrongSite/WrongSite";
+import {
+    OUserRoute,
+    OAdminRoute,
+    WrongSiteRoute
+} from "../components/HOC/ROuteHOCs"
 
 export const router = createBrowserRouter([
     {
@@ -66,7 +74,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.OREST,
-                element: <Orest/>
+                element: <Orest/>,
+                children: [
+                    {
+                        path: AppRoutes.OUSER,
+                        element: <OUserRoute Component={OUser}/>
+                    },
+                    {
+                        path: AppRoutes.OADMIN,
+                        element: <OAdminRoute Component={OAdmin}/>
+                    },
+                    {
+                        path: AppRoutes.WRONGSITE,
+                        element: <WrongSiteRoute Component={WrongSite}/>
+                    }
+                ]
             }
         ]
     },

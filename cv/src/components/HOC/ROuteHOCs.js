@@ -38,3 +38,15 @@ export const GuestRoute = ({Component}) => {
     const user = JSON.parse(localStorage.getItem('user'))
     return user?.role ? <Component user={user}/>  : <Component user={user}/>
 }
+
+export const OUserRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.id ? <Component user={user}/> : <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const OAdminRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role === 'Admin' ? <Component user={user}/> : <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const WrongSiteRoute = () => <Navigate to={AppRoutes.MAIN}/>
