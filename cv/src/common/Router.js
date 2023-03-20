@@ -24,6 +24,7 @@ import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import Mentor from "../pages/Mentor/Mentor";
 import Orest from "../pages/Orest/Orest"
 import {Comp} from "../pages/Mentor/components/User/User";
+import {Locations} from "../pages/Yaryna/Api/Locations";
 
 export const router = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.YARYNA,
-                element: <Yaryna/>,
+                element: <Yaryna Component={Locations}/>,
                 children: [
                     {
                     path: AppRoutes.MYLOGIN,

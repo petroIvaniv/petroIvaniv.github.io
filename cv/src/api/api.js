@@ -29,3 +29,5 @@ export const CharacterApi = {
 export const LocationApi = {
 
 }
+
+
