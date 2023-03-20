@@ -10,7 +10,9 @@ import {
     PublicRoute,
     YarynaRoute,
     GuestRoute,
-    NotYarynaRoute
+    NotYarynaRoute,
+    AndriyRoute,
+    AGuestRoute
 } from "../components/HOC/ROuteHOCs";
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
@@ -22,6 +24,8 @@ import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 // import Cancel from "../pages/Yaryna/GuestView/GuestView";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import Mentor from "../pages/Mentor/Mentor";
+import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
+import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
 import Orest from "../pages/Orest/Orest"
 import {Comp} from "../pages/Mentor/components/User/User";
 
@@ -55,7 +59,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.Andriy,
-                element: <Andriy/>
+                element: <Andriy/>,
+                children:[
+                    {
+                        path: AppRoutes.ANDRIYLOGIN,
+                        element: <AndriyRoute Component={AndriyLogin}/>,
+                    },
+                    {
+                        path: AppRoutes.GUESTLOGIN,
+                        element: <AGuestRoute Component={GuestLogin}/>
+                    }
+                ]
+
             },
             {
                 path: AppRoutes.YEVHEN,
