@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import ReactForm from "./components/Form/ReactForm";
 import {CharacterApi} from "../../api/api";
 import {Pagination} from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { rickMortyActions } from "../../redux/actions/rickMortyActions.js";
 
 const initialState = {
     name: '',
@@ -10,9 +12,10 @@ const initialState = {
 const editUser = {name: 'Ihor', password: '123'}
 
 const Mentor = ({Component, isAdmin = false, form}) => {
-    const [users, setUsers] = useState([]);
+    const dispatch = useDispatch();
+    const users = useSelector((store)=> store.mentor.results)
+    const info = useSelector((store)=> store.mentor.info)
     const [activePage, setActivePage] = useState(1);
-    const [info, setInfo] = useState({});
     const [editMode, setEditMode] = useState(true);
     const [formValues, setFormValues] = useState(editMode ? editUser : initialState)
 
@@ -22,37 +25,15 @@ const Mentor = ({Component, isAdmin = false, form}) => {
 
     let name = "ne Ihor"
     const handleClick = (user) => alert(user.name)
-    const handleSubmit = ()=>{
-        console.log(formValues)
-    }
 
-    const getUsers = async () => {
-        try{
-            // const response = await  fetch("https://rickandmortyapi.com/api/character")
-            // const data = await response.json()
 
-            const {data} = await CharacterApi.getCharacters()
-            setUsers(data.results)
-            setInfo(data.info)
-        } catch (e) {
-
-        }
-    }
-
-    const getNextPage = async () => {
-        try{
-            const {data} = await CharacterApi.getNextPage(activePage)
-            setUsers(data.results)
-            setInfo(data.info)
-        } catch (e) {
-
-        }
-    }
     const universalGetUsers = async () => {
         try{
             const {data} = await CharacterApi.getUsers(activePage)
-            setUsers(data.results)
-            setInfo(data.info)
+            // setUsers(data.results)
+            // setInfo(data.info)
+            dispatch(rickMortyActions.setCharacters(data.results))
+            dispatch(rickMortyActions.setInfo(data.info))
         } catch (e) {
 
         }
@@ -63,22 +44,11 @@ const Mentor = ({Component, isAdmin = false, form}) => {
     },[editMode])
 
     useEffect(()=>{
-        // getUsers()
-       // fetch("https://rickandmortyapi.com/api/character")
-       //          .then(data => data.json())
-       //          .then(res => {
-       //              // console.log(res.results)
-       //              setUsers(res.results)
-       //              setInfo(res.info)
-       //              // console.log('moreUsers', moreUsers)
-       //          })
     }, []);
 
     useEffect(()=>{
-        // activePage === 1 ? getUsers() : getNextPage()
         universalGetUsers()
     },[activePage])
-
 
 
 
