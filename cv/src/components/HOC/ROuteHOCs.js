@@ -35,6 +35,28 @@ export const NotYarynaRoute = ({Component}) => {
 }
 
 export const GuestRoute = ({Component}) => {
+    const users = JSON.parse(localStorage.getItem('user'))
+    return users?.role ? <Component user={users}/>  : <Component user={users}/>
+}
+export const AndriyRoute = ({Component})=>{
+    const users = JSON.parse(localStorage.getItem('users'));
+    return users?.role ==="Andriy" ? <Component user={users}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+export const AGuestRoute = ({Component}) =>{
+    const users = JSON.parse(localStorage.getItem('users'))
+    return users?.role ==="guest" ? <Component user={users}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+export const DimasichockRouter = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ==="Dimasichock" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const FakeStudentRoute = ({Component}) => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user?.role ==="Student" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
+
+export const StudentRoute = ({Component}) => {
     const user = JSON.parse(localStorage.getItem('user'))
     return user?.role ? <Component user={user}/>  : <Component user={user}/>
 }

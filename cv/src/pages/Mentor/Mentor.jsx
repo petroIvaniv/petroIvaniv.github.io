@@ -1,34 +1,96 @@
 import {useEffect, useState} from "react";
-import UserComp, {Comp} from "./components/User/User";
+import ReactForm from "./components/Form/ReactForm";
+import {CharacterApi} from "../../api/api";
+import {Pagination} from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { rickMortyActions } from "../../redux/actions/rickMortyActions.js";
+
+const initialState = {
+    name: '',
+    password: ''
+}
+const editUser = {name: 'Ihor', password: '123'}
+
+const Mentor = ({Component, isAdmin = false, form}) => {
+    const dispatch = useDispatch();
+    const users = useSelector((store)=> store.mentor.results)
+    const info = useSelector((store)=> store.mentor.info)
+    const [activePage, setActivePage] = useState(1);
+    const [editMode, setEditMode] = useState(true);
+    const [formValues, setFormValues] = useState(editMode ? editUser : initialState)
 
 
-const Mentor = () => {
-    const [users, setUsers] = useState([]);
+    console.log('activePage',activePage)
+
+
     let name = "ne Ihor"
     const handleClick = (user) => alert(user.name)
-    console.log('Container')
+
+
+    const universalGetUsers = async () => {
+        try{
+            const {data} = await CharacterApi.getUsers(activePage)
+            // setUsers(data.results)
+            // setInfo(data.info)
+            dispatch(rickMortyActions.setCharacters(data.results))
+            dispatch(rickMortyActions.setInfo(data.info))
+        } catch (e) {
+
+        }
+    }
 
     useEffect(()=>{
-        fetch("https://rickandmortyapi.com/api/character")
-            .then(data=> data.json())
-            .then(res =>{
-                // console.log(res.results)
-                setUsers(res.results)
-                // console.log('moreUsers', moreUsers)
-            })
+        setFormValues(editMode ? editUser : initialState)
+    },[editMode])
+
+    useEffect(()=>{
     }, []);
+
+    useEffect(()=>{
+        universalGetUsers()
+    },[activePage])
+
+
 
     return(
         <div>
-            <h1>Mentor</h1>\
-            <Comp name={name}/>
-            {/*<MemoComp name={name}/>*/}
-            {users?.map((user,index) =>
-                <UserComp
-                    key={user.name}
-                    user={user}
-                    handleClick={handleClick}
-                />)}
+            <h1>Mentor</h1>
+            <Pagination
+                prev
+                last
+                next
+                first
+                size="xs"
+                total={info?.count}
+                limit={20}
+                maxButtons={10}
+                activePage={activePage}
+                onChangePage={setActivePage}
+            />
+            <Component
+                name={name}
+                users={users}
+                handleClick={handleClick}
+            />
+            <Pagination
+                prev
+                last
+                next
+                first
+                size="xs"
+                total={info?.count}
+                limit={20}
+                maxButtons={10}
+                activePage={activePage}
+                onChangePage={setActivePage}
+            />
+            {/*{form && <ReactForm*/}
+            {/*    setFormValues={setFormValues}*/}
+            {/*    formValues={formValues}*/}
+            {/*    handleSubmit={handleSubmit}*/}
+            {/*    setEditMode={setEditMode}*/}
+            {/*    editMode={editMode}*/}
+            {/*/>}*/}
 
 
 
