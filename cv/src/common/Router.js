@@ -4,8 +4,6 @@ import Header from "../components/Header/Header";
 import Yaryna from '../pages/Yaryna/yaryna';
 import { AppRoutes } from "./AppRoutes";
 import Dimasichock from "../pages/Dimasichock/Dimasichock";
-import Student from "../pages/Dimasichock/Student/Student";
-import FakeStudent from "../pages/Dimasichock/FakeStudent/FakeStudent";
 import {
     AdminRoute,
     PrivateRoute,
@@ -14,10 +12,7 @@ import {
     GuestRoute,
     NotYarynaRoute,
     AndriyRoute,
-    AGuestRoute,
-    DimasichockRouter,
-    FakeStudentRoute,
-    StudentRoute
+    AGuestRoute
 } from "../components/HOC/ROuteHOCs";
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
@@ -32,18 +27,7 @@ import Mentor from "../pages/Mentor/Mentor";
 import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
 import Orest from "../pages/Orest/Orest"
-<<<<<<< HEAD
-import OUser from "../pages/Orest/OUser/OUser";
-import OAdmin from "../pages/Orest/OAdmin/OAdmin";
-import WrongSite from "../pages/Orest/WrongSite/WrongSite";
-import {
-    OUserRoute,
-    OAdminRoute,
-    WrongSiteRoute
-} from "../components/HOC/ROuteHOCs"
-=======
 import {Comp} from "../pages/Mentor/components/User/User";
->>>>>>> development
 
 export const router = createBrowserRouter([
     {
@@ -53,21 +37,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: AppRoutes.Dimasichock,
-                element: <Dimasichock/>,
-                children: [
-                    {
-                    path: AppRoutes.ADMIN,
-                    element: <DimasichockRouter Component={Admin}/>,
-                    },
-                    {
-                        path: AppRoutes.FAKESTUDENT,
-                        element: <FakeStudentRoute Component={FakeStudent}/>,
-                    },
-                    {
-                        path: AppRoutes.STUDENT,
-                        element: <StudentRoute Component={Student}/>,
-                    }
-                ]
+                element: <Dimasichock/>
             },
             {
                 path: AppRoutes.YARYNA,
@@ -112,21 +82,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.OREST,
-                element: <Orest/>,
-                children: [
-                    {
-                        path: AppRoutes.OUSER,
-                        element: <OUserRoute Component={OUser}/>
-                    },
-                    {
-                        path: AppRoutes.OADMIN,
-                        element: <OAdminRoute Component={OAdmin}/>
-                    },
-                    {
-                        path: AppRoutes.WRONGSITE,
-                        element: <WrongSiteRoute Component={WrongSite}/>
-                    }
-                ]
+                element: <Orest/>
             }
         ]
     },

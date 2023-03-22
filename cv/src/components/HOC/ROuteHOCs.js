@@ -46,29 +46,3 @@ export const AGuestRoute = ({Component}) =>{
     const users = JSON.parse(localStorage.getItem('users'))
     return users?.role ==="guest" ? <Component user={users}/> :  <Navigate to={AppRoutes.MAIN}/>
 }
-export const DimasichockRouter = ({Component}) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.role ==="Dimasichock" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
-}
-
-export const FakeStudentRoute = ({Component}) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.role ==="Student" ? <Component user={user}/> :  <Navigate to={AppRoutes.MAIN}/>
-}
-
-export const StudentRoute = ({Component}) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.role ? <Component user={user}/>  : <Component user={user}/>
-}
-
-export const OUserRoute = ({Component}) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.id ? <Component user={user}/> : <Navigate to={AppRoutes.MAIN}/>
-}
-
-export const OAdminRoute = ({Component}) => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    return user?.role === 'Admin' ? <Component user={user}/> : <Navigate to={AppRoutes.MAIN}/>
-}
-
-export const WrongSiteRoute = () => <Navigate to={AppRoutes.MAIN}/>
