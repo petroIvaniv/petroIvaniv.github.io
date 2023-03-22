@@ -19,4 +19,7 @@ export const AppRoutes = {
     ADMIN: '/dimasichock/admin',
     FAKESTUDENT: '/dimasichock/fake',
     STUDENT: '/dimasichock/student',
+    OUSER: '/orest/ouser',
+    OADMIN: '/orest/oadmin',
+    WRONGSITE: '/orest/ooops'
 }
