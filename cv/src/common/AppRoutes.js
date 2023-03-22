@@ -15,5 +15,8 @@ export const AppRoutes = {
     GUESTLOGIN:'/andriy/guest',
     MENTOR: '/mentor',
     MENTOR_HOC: '/mentor/hoc',
-    OREST: '/orest'
+    OREST: '/orest',
+    ADMIN: '/dimasichock/admin',
+    FAKESTUDENT: '/dimasichock/fake',
+    STUDENT: '/dimasichock/student',
 }

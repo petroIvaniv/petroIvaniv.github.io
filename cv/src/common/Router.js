@@ -4,6 +4,8 @@ import Header from "../components/Header/Header";
 import Yaryna from '../pages/Yaryna/yaryna';
 import { AppRoutes } from "./AppRoutes";
 import Dimasichock from "../pages/Dimasichock/Dimasichock";
+import Student from "../pages/Dimasichock/Student/Student";
+import FakeStudent from "../pages/Dimasichock/FakeStudent/FakeStudent";
 import {
     AdminRoute,
     PrivateRoute,
@@ -12,7 +14,10 @@ import {
     GuestRoute,
     NotYarynaRoute,
     AndriyRoute,
-    AGuestRoute
+    AGuestRoute,
+    DimasichockRouter,
+    FakeStudentRoute,
+    StudentRoute
 } from "../components/HOC/ROuteHOCs";
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
@@ -37,7 +42,21 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: AppRoutes.Dimasichock,
-                element: <Dimasichock/>
+                element: <Dimasichock/>,
+                children: [
+                    {
+                    path: AppRoutes.ADMIN,
+                    element: <DimasichockRouter Component={Admin}/>,
+                    },
+                    {
+                        path: AppRoutes.FAKESTUDENT,
+                        element: <FakeStudentRoute Component={FakeStudent}/>,
+                    },
+                    {
+                        path: AppRoutes.STUDENT,
+                        element: <StudentRoute Component={Student}/>,
+                    }
+                ]
             },
             {
                 path: AppRoutes.YARYNA,
