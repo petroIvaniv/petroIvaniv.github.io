@@ -1,6 +1,7 @@
 import styles from './Header.module.scss'
-import '../../pages/Yaryna/yaryna.scss'
+import '../../pages/Yaryna/yaryna.module.scss'
 import './../../pages/Andriy/Andriy.module.scss'
+import './../../pages/Dimasichock/Dimasichock.module.scss'
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../common/AppRoutes";
 const Header = () => {

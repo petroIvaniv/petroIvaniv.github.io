@@ -1,6 +1,8 @@
 import {Link, Outlet} from "react-router-dom";
 import {AppRoutes} from "../../common/AppRoutes";
 import './Andriy.module.scss'
+import styles from './Andriy.module.scss'
+import Container from "./calculator/Container";
 import MyForm from "./components/Form/MyForm";
 const Andriy = () =>{
     const login = (userRole) => {
@@ -9,6 +11,8 @@ const Andriy = () =>{
     const logout = () => localStorage.removeItem('users');
     return(
         <div>
+            {/*<h1 className={styles.title}>Andriy</h1>*/}
+            {/*<Container/>*/}
             {/*<p>Hello, login please</p>*/}
             {/*    <button type='button' onClick={()=>login('Andriy')}>Login as Andriy</button>*/}
             {/*    <br/>*/}
