@@ -1,6 +1,8 @@
 import {Link, Outlet} from "react-router-dom";
 import {AppRoutes} from "../../common/AppRoutes";
 import './Andriy.module.scss'
+import styles from './Andriy.module.scss'
+import Container from "./calculator/Container";
 const Andriy = () =>{
     const login = (userRole) => {
         localStorage.setItem('users',  JSON.stringify({id: '1', role: userRole}));
@@ -8,6 +10,9 @@ const Andriy = () =>{
     const logout = () => localStorage.removeItem('users');
     return(
         <div>
+            <h1 className={styles.title}>Andriy</h1>
+            <Container/>
+
             <p>Hello, login please</p>
                 <button type='button' onClick={()=>login('Andriy')}>Login as Andriy</button>
                 <br/>
