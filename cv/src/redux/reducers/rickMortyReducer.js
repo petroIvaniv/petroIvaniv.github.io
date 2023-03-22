@@ -8,6 +8,7 @@ const initialState = {
 }
 
 const rickMortyReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
         case rmActionTypes.SET_CHARACTERS:
             return{
@@ -18,6 +19,12 @@ const rickMortyReducer = (state = initialState, action) => {
             return{
                 ...state,
                 info: action.info
+            }
+        case rmActionTypes.SET_DATA:
+            return{
+                ...state,
+                results: action.data.results,
+                info: action.data.info
             }
         default:
             return state

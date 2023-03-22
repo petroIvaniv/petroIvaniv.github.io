@@ -1,0 +1,19 @@
+import { rmActionTypes } from "../actions/rickMortyActions.js";
+
+const initialState = {
+    count: 0
+}
+
+const apiCount = (state = initialState, action) => {
+    switch (action.type) {
+        case rmActionTypes.SET_DATA:
+            return{
+                ...state,
+                count: state.count + 1
+            }
+        default:
+            return state
+    }
+}
+
+export default apiCount;

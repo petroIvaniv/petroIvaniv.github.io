@@ -83,17 +83,17 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.OREST,
                 element: <Orest/>
-            }
+            },
+            {
+                path: AppRoutes.INFO,
+                element: <>
+                    <h1>
+                        INFO
+                    </h1> </>,
+            },
         ]
     },
-    {
-        path: AppRoutes.INFO,
-        element: <>
-            <Header/>
-            <h1>
-                INFO
-            </h1> </>,
-    },
+
     {
         path: AppRoutes.LOGIN,
         element: <PublicRoute Component={Login}/>,

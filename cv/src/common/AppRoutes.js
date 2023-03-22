@@ -6,7 +6,7 @@ export const AppRoutes = {
     Andriy:'/andriy',
     YEVHEN: '/yevhen',
     LOGIN: '/login',
-    ADMIN: '/admin',
+    // ADMIN: '/admin',
     USER: '/user/:userId',
     MYLOGIN: '/yara/welcome',
     NOTMYLOGIN: '/yara/guest',
