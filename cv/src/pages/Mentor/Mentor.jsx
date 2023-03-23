@@ -3,7 +3,7 @@ import ReactForm from "./components/Form/ReactForm";
 import {CharacterApi} from "../../api/api";
 import {Pagination} from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { rickMortyActions } from "../../redux/actions/rickMortyActions.js";
+import { rickMortyActions, universalGetUsersThunk } from "../../redux/actions/rickMortyActions.js";
 
 const initialState = {
     name: '',
@@ -19,25 +19,25 @@ const Mentor = ({Component, isAdmin = false, form}) => {
     const [editMode, setEditMode] = useState(true);
     const [formValues, setFormValues] = useState(editMode ? editUser : initialState)
 
-
-    console.log('activePage',activePage)
+    const universalGetUsers = (page) => dispatch(universalGetUsersThunk(page))
 
 
     let name = "ne Ihor"
     const handleClick = (user) => alert(user.name)
 
 
-    const universalGetUsers = async () => {
-        try{
-            const {data} = await CharacterApi.getUsers(activePage)
-            // setUsers(data.results)
-            // setInfo(data.info)
-            dispatch(rickMortyActions.setCharacters(data.results))
-            dispatch(rickMortyActions.setInfo(data.info))
-        } catch (e) {
-
-        }
-    }
+    // const universalGetUsers = async () => {
+    //     try{
+    //         const {data} = await CharacterApi.getUsers(activePage)
+    //         // setUsers(data.results)
+    //         // setInfo(data.info)
+    //         // dispatch(rickMortyActions.setCharacters(data.results))
+    //         // dispatch(rickMortyActions.setInfo(data.info))
+    //         dispatch(rickMortyActions.setData(data))
+    //     } catch (e) {
+    //
+    //     }
+    // }
 
     useEffect(()=>{
         setFormValues(editMode ? editUser : initialState)
@@ -47,7 +47,7 @@ const Mentor = ({Component, isAdmin = false, form}) => {
     }, []);
 
     useEffect(()=>{
-        universalGetUsers()
+        universalGetUsers(activePage)
     },[activePage])
 
 
