@@ -2,6 +2,7 @@ import styles from './Orest.module.scss'
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../common/AppRoutes";
+import ContainerComp from './LiftingStateUp/ContainerComp';
 const Orest = () => {
     const login = (OrestUser) => {
         localStorage.setItem('user', JSON.stringify({id: '228', role: OrestUser}))
@@ -9,6 +10,7 @@ const Orest = () => {
     const logout = () => localStorage.removeItem('user')
     return(
         <div>
+            <ContainerComp/>
             <h1 className={styles.title}>Hello, login please</h1>
             <button type='button' onClick={()=>login('Orest')}>Login as Orest</button>
             <button type='button' onClick={()=>login('Admin')}>Login as Admin</button>

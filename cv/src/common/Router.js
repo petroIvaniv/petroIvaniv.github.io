@@ -32,7 +32,6 @@ import Mentor from "../pages/Mentor/Mentor";
 import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
 import Orest from "../pages/Orest/Orest"
-<<<<<<< HEAD
 import OUser from "../pages/Orest/OUser/OUser";
 import OAdmin from "../pages/Orest/OAdmin/OAdmin";
 import WrongSite from "../pages/Orest/WrongSite/WrongSite";
@@ -41,9 +40,7 @@ import {
     OAdminRoute,
     WrongSiteRoute
 } from "../components/HOC/ROuteHOCs"
-=======
 import {Comp} from "../pages/Mentor/components/User/User";
->>>>>>> development
 
 export const router = createBrowserRouter([
     {
