@@ -28,6 +28,7 @@ import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
 import Orest from "../pages/Orest/Orest"
 import {Comp} from "../pages/Mentor/components/User/User";
+import {AndriyUser} from "../pages/Andriy/components/User/AndriyUser";
 import ConsultHOC from '../pages/Consult/ConsultHOC.jsx';
 
 export const router = createBrowserRouter([
@@ -60,7 +61,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.Andriy,
-                element: <Andriy/>,
+                element: <Andriy Component={AndriyUser}/>,
                 children:[
                     {
                         path: AppRoutes.ANDRIYLOGIN,
