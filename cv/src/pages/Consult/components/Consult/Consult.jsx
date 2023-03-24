@@ -1,5 +1,6 @@
+import React from 'react';
 import styles from './Consult.module.scss';
-import { Form, Button, ButtonToolbar, Schema, Panel } from 'rsuite';
+import { Form, Button, ButtonToolbar, Schema } from 'rsuite';
 
 
 const TextField = (props) => {
@@ -34,13 +35,12 @@ const model = Schema.Model({
     .isRequired('This field is required.')
 });
 
-const Consult = () => {
+const Consult = ({handleLogin}) => {
   const formRef = React.useRef();
   // const [formError, setFormError] = React.useState({});
   const [formValue, setFormValue] = React.useState({
     name: '',
     email: '',
-    age: '',
     password: '',
     verifyPassword: ''
   });
@@ -50,7 +50,8 @@ const Consult = () => {
       console.error('Form Error');
       return;
     }
-    console.log(formValue, 'Form Value');
+    console.log('onSubmit', formValue);
+    handleLogin(formValue);
   };
 
   return (
@@ -77,7 +78,6 @@ const Consult = () => {
           </Button>
         </ButtonToolbar>
       </Form>
-
     </div>
 
   );

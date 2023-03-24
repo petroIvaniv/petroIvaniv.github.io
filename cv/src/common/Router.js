@@ -12,7 +12,7 @@ import {
     GuestRoute,
     NotYarynaRoute,
     AndriyRoute,
-    AGuestRoute
+    AGuestRoute, ConsultPrivateRoute
 } from "../components/HOC/ROuteHOCs";
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
@@ -30,6 +30,8 @@ import Orest from "../pages/Orest/Orest"
 import {Comp} from "../pages/Mentor/components/User/User";
 import {AndriyUser} from "../pages/Andriy/components/User/AndriyUser";
 import ConsultHOC from '../pages/Consult/ConsultHOC.jsx';
+import Consult from '../pages/Consult/components/Consult/Consult.jsx';
+import { Users } from '../pages/Consult/components/Users.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -83,8 +85,8 @@ export const router = createBrowserRouter([
                 element: <Mentor Component={Comp} form={true}/>
             },
             {
-                path: AppRoutes.MENTOR,
-                element: <ConsultHOC Component={Comp} />
+                path: AppRoutes.CONSULT,
+                element: <ConsultHOC Component={Consult} />
             },
             {
                 path: AppRoutes.OREST,
@@ -111,6 +113,10 @@ export const router = createBrowserRouter([
     {
         path: AppRoutes.USER,
         element: <PrivateRoute Component={User}/>,
+    },
+    {
+        path: AppRoutes.USERS,
+        element: <ConsultPrivateRoute Component={Users}/>,
     },
 
 ]);

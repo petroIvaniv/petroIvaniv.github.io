@@ -8,6 +8,12 @@ export const PrivateRoute = ({Component}) => {
 
 }
 
+export const ConsultPrivateRoute = ({Component}) => {
+    const authUser = JSON.parse(localStorage.getItem('authUser'))
+    return authUser?.name ? <Component /> : <Navigate to={AppRoutes.CONSULT}/>
+
+}
+
 export const PublicRoute = ({Component}) => {
     const authUser = JSON.parse(localStorage.getItem('authUser'))
     console.log(authUser)

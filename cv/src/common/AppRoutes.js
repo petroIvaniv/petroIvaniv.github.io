@@ -1,5 +1,7 @@
 export const AppRoutes = {
     MAIN: '/',
+    CONSULT: '/consult',
+    USERS: '/users',
     INFO: '/info',
     Dimasichock: '/dimasichock',
     YARYNA: '/yara',
