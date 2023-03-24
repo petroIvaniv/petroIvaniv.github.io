@@ -28,6 +28,7 @@ import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
 import Orest from "../pages/Orest/Orest"
 import {Comp} from "../pages/Mentor/components/User/User";
+import ConsultHOC from '../pages/Consult/ConsultHOC.jsx';
 
 export const router = createBrowserRouter([
     {
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
             {
                 path: AppRoutes.MENTOR,
                 element: <Mentor Component={Comp} form={true}/>
+            },
+            {
+                path: AppRoutes.MENTOR,
+                element: <ConsultHOC Component={Comp} />
             },
             {
                 path: AppRoutes.OREST,
