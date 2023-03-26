@@ -1,22 +1,24 @@
-import {Link, Outlet} from "react-router-dom";
-import {AppRoutes} from "../../common/AppRoutes";
 import './Andriy.module.scss'
-import styles from './Andriy.module.scss'
-import Container from "./calculator/Container";
-import MyForm from "./components/Form/MyForm";
 import {Pagination} from "rsuite";
 import {useEffect, useState} from "react";
 import {CharacterApi, EpisodeApi} from "../../api/api";
+import {useDispatch, useSelector} from "react-redux";
+import {andriyAction} from "../../redux/actions/andriyAction";
+import store from "../../redux/store";
 const Andriy = ({Component}) =>{
+    const dispatch = useDispatch();
+    const users = useSelector((store)=>store.andriy.results);
+    const info = useSelector((store)=>store.andriy.info)
     const [activePage, setActivePage] = useState(1);
-    const [info, setInfo] = useState();
-    const [users, setUsers] = useState();
+    // const [info, setInfo] = useState();
+    // const [users, setUsers] = useState();
     const getEpisode = async ()=>{
         try {
             const {data} = await EpisodeApi.getEpisode(activePage)
-            setInfo(data.info);
-            setUsers(data.results);
-            console.log(data)
+            // setInfo(data.info);
+            // setUsers(data.results);
+            dispatch(andriyAction.setEpisode(data.results));
+            dispatch(andriyAction.setInfo(data.info));
         }catch (e) {
 
         }
@@ -24,10 +26,6 @@ const Andriy = ({Component}) =>{
     useEffect(()=>{
         getEpisode();
     },[activePage])
-    // const login = (userRole) => {
-    //     localStorage.setItem('users',  JSON.stringify({id: '1', role: userRole}));
-    // }
-    // const logout = () => localStorage.removeItem('users');
     return(
         <div>
             <Pagination
@@ -45,20 +43,6 @@ const Andriy = ({Component}) =>{
             <Component
                 users={users}
             />
-            {/*<h1 className={styles.title}>Andriy</h1>*/}
-            {/*<Container/>*/}
-            {/*<p>Hello, login please</p>*/}
-            {/*    <button type='button' onClick={()=>login('Andriy')}>Login as Andriy</button>*/}
-            {/*    <br/>*/}
-            {/*    <button type='button' onClick={()=>login('guest')}>Login as Guest</button>*/}
-            {/*    <br/>*/}
-            {/*    <button type='button' onClick={()=>logout()}>Logout</button>*/}
-            {/*<div>*/}
-            {/*    <Link to={AppRoutes.ANDRIYLOGIN}>Andriy</Link>*/}
-            {/*    <Link to={AppRoutes.GUESTLOGIN}>Guest</Link>*/}
-            {/*</div>*/}
-            {/*<Outlet/>*/}
-            {/*<MyForm/>*/}
         </div>
     )
 }
