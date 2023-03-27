@@ -3,11 +3,13 @@ import { composeWithDevToolsDevelopmentOnly } from "@redux-devtools/extension";
 import rickMortyReducer from "./reducers/rickMortyReducer.js";
 import apiCount from "./reducers/apiCountReducer.js";
 import thunk from "redux-thunk";
+import {andriyReducer} from "./reducers/andriyReducer";
 
 const rootReducer = combineReducers({
     mentor: rickMortyReducer,
-    apiCount
+    apiCount,
     // yaryna: yarynaReducer,
+    andriy: andriyReducer,
 })
 
 const composeEnhancers = composeWithDevToolsDevelopmentOnly({
