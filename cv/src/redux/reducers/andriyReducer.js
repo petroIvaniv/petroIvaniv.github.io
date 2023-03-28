@@ -7,7 +7,6 @@ const initialState = {
     results:[]
 }
 export const andriyReducer = (state = initialState, action)=>{
-    console.log(action)
     switch (action.type) {
         case andriyActionTypes.SET_EPISODE:
             return {
