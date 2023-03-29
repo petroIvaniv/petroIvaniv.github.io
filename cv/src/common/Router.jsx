@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/Main/Main";
 import Header from "../components/Header/Header";
 import Yaryna from '../pages/Yaryna/yaryna';
-import { AppRoutes } from "./AppRoutes";
+import { AppRoutes } from "./AppRoutes.jsx";
 import Dimasichock from "../pages/Dimasichock/Dimasichock";
 import {
     AdminRoute,
@@ -23,15 +23,15 @@ import MyLogin from "../pages/Yaryna/MyLogin/MyLogin";
 import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 // import Cancel from "../pages/Yaryna/GuestView/GuestView";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
-import Mentor from "../pages/Mentor/Mentor";
 import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
 import Orest from "../pages/Orest/Orest"
-import {Comp} from "../pages/Mentor/components/User/User";
 import {AndriyUser} from "../pages/Andriy/components/User/AndriyUser";
 import ConsultHOC from '../pages/Consult/ConsultHOC.jsx';
 import Consult from '../pages/Consult/components/Consult/Consult.jsx';
-import { Users } from '../pages/Consult/components/Users.jsx';
+import { Users } from '../pages/Consult/components/Users.tsx';
+import { Comp } from '../pages/Mentor/components/User/User';
+import Mentor from '../pages/Mentor/Mentor';
 
 export const router = createBrowserRouter([
     {

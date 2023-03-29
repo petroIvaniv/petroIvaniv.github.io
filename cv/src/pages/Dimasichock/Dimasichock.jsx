@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../common/AppRoutes";
+import { AppRoutes } from "../../common/AppRoutes.jsx";
 import { Outlet } from "react-router-dom";
 
 const Dimasichock = () =>{

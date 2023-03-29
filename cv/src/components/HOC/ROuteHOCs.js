@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { AppRoutes } from "../../common/AppRoutes";
+import { AppRoutes } from "../../common/AppRoutes.jsx";
 
 export const PrivateRoute = ({Component}) => {
     const authUser = JSON.parse(localStorage.getItem('authUser'))

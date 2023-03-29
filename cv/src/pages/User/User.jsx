@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { AppRoutes } from "../../common/AppRoutes";
+import { AppRoutes } from "../../common/AppRoutes.jsx";
 
 const User = ({logic, authUser}) => {
     const {pathname} = useLocation()

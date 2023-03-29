@@ -1,9 +1,10 @@
-import {useEffect, useState} from "react";
+import {FC, ReactElement, useEffect, useState} from "react";
 import ReactForm from "./components/Form/ReactForm";
 import {CharacterApi} from "../../api/api";
 import {Pagination} from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { rickMortyActions, universalGetUsersThunk } from "../../redux/actions/rickMortyActions.js";
+import UserComp, {Comp, CompProps} from "./components/User/User";
 
 const initialState = {
     name: '',
@@ -11,19 +12,36 @@ const initialState = {
 }
 const editUser = {name: 'Ihor', password: '123'}
 
-const Mentor = ({Component, isAdmin = false, form}) => {
-    const dispatch = useDispatch();
-    const users = useSelector((store)=> store.mentor.results)
-    const info = useSelector((store)=> store.mentor.info)
-    const [activePage, setActivePage] = useState(1);
-    const [editMode, setEditMode] = useState(true);
-    const [formValues, setFormValues] = useState(editMode ? editUser : initialState)
+interface Props {
+    Component: FC<CompProps>
+    isAdmin: boolean
+    form?: any
+}
 
-    const universalGetUsers = (page) => dispatch(universalGetUsersThunk(page))
+interface FormValues {
+    name: string,
+    password: string
+}
+
+
+
+const Mentor = ({Component, isAdmin = false, form}: Props) :ReactElement => {
+    const dispatch = useDispatch();
+
+    // @ts-ignore
+    const users = useSelector((store)=> store.mentor.results)
+    // @ts-ignore
+    const info = useSelector((store)=> store.mentor.info)
+    const [activePage, setActivePage] = useState<number>(1);
+    const [editMode, setEditMode] = useState<boolean>(true);
+    const [formValues, setFormValues] = useState<FormValues>(editMode ? editUser : initialState)
+
+    // @ts-ignore
+    const universalGetUsers = (page: number) => dispatch(universalGetUsersThunk(page))
 
 
     let name = "ne Ihor"
-    const handleClick = (user) => alert(user.name)
+    const handleClick = (user: { name: string }) => alert(user.name)
 
 
     // const universalGetUsers = async () => {
