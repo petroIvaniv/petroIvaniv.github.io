@@ -1,8 +1,6 @@
-
-// @ts-ignore
-import styles from "./User.module.scss";
 import React from 'react';
 import {User} from "../../../../types/interfaces";
+import styles from "./User.module.scss";
 
 
 export interface CompProps {

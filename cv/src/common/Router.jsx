@@ -30,8 +30,8 @@ import {AndriyUser} from "../pages/Andriy/components/User/AndriyUser";
 import ConsultHOC from '../pages/Consult/ConsultHOC.jsx';
 import Consult from '../pages/Consult/components/Consult/Consult.jsx';
 import { Users } from '../pages/Consult/components/Users.tsx';
-import { Comp } from '../pages/Mentor/components/User/User';
-import Mentor from '../pages/Mentor/Mentor';
+import { Comp } from '../pages/Mentor/components/User/User.tsx';
+import Mentor from '../pages/Mentor/Mentor.tsx'
 
 export const router = createBrowserRouter([
     {

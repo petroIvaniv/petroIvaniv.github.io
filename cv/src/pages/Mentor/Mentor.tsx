@@ -1,10 +1,9 @@
 import {FC, ReactElement, useEffect, useState} from "react";
-import ReactForm from "./components/Form/ReactForm";
-import {CharacterApi} from "../../api/api";
 import {Pagination} from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { rickMortyActions, universalGetUsersThunk } from "../../redux/actions/rickMortyActions.js";
-import UserComp, {Comp, CompProps} from "./components/User/User";
+import {CompProps} from "./components/User/User";
+import {universalGetUsersThunk} from "../../redux/actions/rickMortyActions";
+
 
 const initialState = {
     name: '',
