@@ -12,7 +12,7 @@ import {
     GuestRoute,
     NotYarynaRoute,
     AndriyRoute,
-    AGuestRoute, ConsultPrivateRoute
+    AGuestRoute, ConsultPrivateRoute, PublicRouteForHOC, PrivateRouteForHOC
 } from "../components/HOC/ROuteHOCs";
 import User from "../pages/User/User";
 import Login from "../pages/Login/Login";
@@ -32,6 +32,10 @@ import Consult from '../pages/Consult/components/Consult/Consult.jsx';
 import { Users } from '../pages/Consult/components/Users.tsx';
 import { Comp } from '../pages/Mentor/components/User/User.tsx';
 import Mentor from '../pages/Mentor/Mentor.tsx'
+import SignUpInHOC from "../pages/Login/SIgnUpInHOC";
+import SignUP from "../pages/Login/SIgnUP/SignUP";
+import SignIn from "../pages/Login/SIgnIn/SignIn";
+import UserHOC from "../pages/Mentor/components/User/UserHOC";
 
 export const router = createBrowserRouter([
     {
@@ -103,8 +107,12 @@ export const router = createBrowserRouter([
     },
 
     {
+        path: AppRoutes.SIGNUP,
+        element: <PublicRouteForHOC HOC ={SignUpInHOC} Component={SignUP} />,
+    },
+    {
         path: AppRoutes.LOGIN,
-        element: <PublicRoute Component={Login}/>,
+        element: <PublicRouteForHOC HOC ={SignUpInHOC} Component={SignIn} />,
     },
     {
         path: AppRoutes.ADMIN,
@@ -112,11 +120,13 @@ export const router = createBrowserRouter([
     },
     {
         path: AppRoutes.USER,
-        element: <PrivateRoute Component={User}/>,
+        element: <PrivateRouteForHOC HOC ={UserHOC} Component={User}/>,
     },
     {
         path: AppRoutes.USERS,
         element: <ConsultPrivateRoute Component={Users}/>,
     },
+
+
 
 ]);

@@ -3,6 +3,7 @@ import {Pagination} from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import {CompProps} from "./components/User/User";
 import {universalGetUsersThunk} from "../../redux/actions/rickMortyActions";
+import styles from './Mentor.module.scss'
 
 
 const initialState = {
@@ -70,7 +71,7 @@ const Mentor = ({Component, isAdmin = false, form}: Props) :ReactElement => {
 
 
     return(
-        <div>
+        <div className={styles.container}>
             <h1>Mentor</h1>
             <Pagination
                 prev

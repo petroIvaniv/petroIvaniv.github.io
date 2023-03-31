@@ -8,6 +8,7 @@ export const AppRoutes = {
     Andriy:'/andriy',
     YEVHEN: '/yevhen',
     LOGIN: '/login',
+    SIGNUP: '/signup',
     // ADMIN: '/admin',
     USER: '/user/:userId',
     MYLOGIN: '/yara/welcome',

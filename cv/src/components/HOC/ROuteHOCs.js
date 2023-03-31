@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { AppRoutes } from "../../common/AppRoutes.jsx";
+import Consult from "../../pages/Consult/components/Consult/Consult";
 
 export const PrivateRoute = ({Component}) => {
     const authUser = JSON.parse(localStorage.getItem('authUser'))
@@ -12,6 +13,20 @@ export const ConsultPrivateRoute = ({Component}) => {
     const authUser = JSON.parse(localStorage.getItem('authUser'))
     return authUser?.name ? <Component /> : <Navigate to={AppRoutes.CONSULT}/>
 
+}
+
+export const PrivateRouteForHOC = ({HOC, Component}) => {
+    const authUser = JSON.parse(localStorage.getItem('authUser'))
+    return authUser?.uid
+        ? <HOC Component={Component} />
+        : <Navigate to={AppRoutes.LOGIN}/>
+}
+
+export const PublicRouteForHOC = ({HOC, Component}) => {
+    const authUser = JSON.parse(localStorage.getItem('authUser'))
+    return authUser?.uid
+        ? <Navigate to={`/user/${authUser?.uid}`}/>
+        : <HOC Component={Component} />
 }
 
 export const PublicRoute = ({Component}) => {
