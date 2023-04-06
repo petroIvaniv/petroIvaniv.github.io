@@ -52,3 +52,7 @@ export const AGuestRoute = ({Component}) =>{
     const users = JSON.parse(localStorage.getItem('users'))
     return users?.role ==="guest" ? <Component user={users}/> :  <Navigate to={AppRoutes.MAIN}/>
 }
+export const OrestRoute = ({Component})=>{
+    const users = JSON.parse(localStorage.getItem('users'));
+    return users?.role ==="Orest" ? <Component user={users}/> :  <Navigate to={AppRoutes.MAIN}/>
+}
