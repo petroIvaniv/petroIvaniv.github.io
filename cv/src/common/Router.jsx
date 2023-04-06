@@ -25,7 +25,8 @@ import NotMyLogin from "../pages/Yaryna/NotMyLogin/NotMyLogin";
 import GuestView from "../pages/Yaryna/GuestView/GuestView";
 import AndriyLogin from "../pages/Andriy/AndriyLogin/AndriyLogin";
 import GuestLogin from "../pages/Andriy/GuestLogin/GuestLogin";
-import Orest from "../pages/Orest/Orest"
+import Orest from "../pages/Orest/Orest.jsx";
+import { OrestAxios } from "../pages/Orest/OrestAxios";
 import {AndriyUser} from "../pages/Andriy/components/User/AndriyUser";
 import ConsultHOC from '../pages/Consult/ConsultHOC.jsx';
 import Consult from '../pages/Consult/components/Consult/Consult.jsx';
@@ -94,7 +95,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.OREST,
-                element: <Orest/>
+                element: <Orest Component={OrestAxios}/>
             },
             {
                 path: AppRoutes.INFO,
