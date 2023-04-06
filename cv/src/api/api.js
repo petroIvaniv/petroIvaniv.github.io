@@ -27,7 +27,7 @@ export const CharacterApi = {
 }
 
 export const LocationApi = {
-
+    getLocation: (pageNumber) => instance.get(`${Endpoints.LOCATION}${pageNumber !== 1 ? `?page=${pageNumber}` : ''}`)
 }
 export const EpisodeApi = {
     getEpisode: (pageNumber)=> instance.get(`${Endpoints.EPISODE}${pageNumber !== 1 ? `?page=${pageNumber}` : ''}`),
