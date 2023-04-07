@@ -46,8 +46,10 @@ export const mockData = {
     },
 }
 
-const User = ({handleSignOut, deleteInfo, isEditMode, setIsEditMOde, addInfo, data, isLoading, handleGIEdit}) => {
-
+const User = ({setFileInfo, uploading, fileInfo, handleSignOut, handleFileUpload, deleteInfo, isEditMode, setIsEditMOde, addInfo, data, isLoading, handleGIEdit}) => {
+    // useEffect(() => {
+    //     addInfo();
+    // }, [])
     // const {pathname} = useLocation()
     // const {userId} = useParams()
     // const navigate = useNavigate()
@@ -69,7 +71,15 @@ const User = ({handleSignOut, deleteInfo, isEditMode, setIsEditMOde, addInfo, da
         <hr/>
 
         {isEditMode && data
-            ? <EditUser addInfo={addInfo} data={data} handleGIEdit={handleGIEdit}/>
+            ? <EditUser
+                addInfo={addInfo}
+                data={data}
+                handleGIEdit={handleGIEdit}
+                handleFileUpload={handleFileUpload}
+                setFileInfo={setFileInfo}
+                fileInfo={fileInfo}
+                uploading={uploading}
+            />
             : isLoading
                 ? <h1>Loading</h1>
                 : data
