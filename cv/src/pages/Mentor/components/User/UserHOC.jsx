@@ -2,12 +2,14 @@ import {ref, uploadBytesResumable, getDownloadURL, deleteObject, listAll} from "
 import {onAuthStateChanged, signOut} from "firebase/auth"
 import {collection, addDoc, onSnapshot, doc, setDoc, deleteDoc} from "firebase/firestore"
 import {auth, db, storage} from "../../../../firebase";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {AppRoutes} from "../../../../common/AppRoutes";
 import {useEffect, useState} from "react";
 import {mockData} from "../../../User/User";
+import {createContext} from 'react';
+import useGetInfo from "../../../../components/hook/useGetInfo";
 
-
+export const UserHOCContext = createContext(null);
 const UserHOC = ({Component}) => {
     // onAuthStateChanged(auth, (currentUser) => console.log(currentUser))
     const [uploading, setUploading] = useState(false);
@@ -21,40 +23,45 @@ const UserHOC = ({Component}) => {
     const authUser = JSON.parse(localStorage.getItem('authUser'))
     const collectionRef = collection(db, authUser?.uid)
 
+    const {userId} = useParams()
 
-    useEffect(() => {
-        setIsLoading(true)
-        // addInfo();
-        getInfo();
-
-    }, [])
-
-    useEffect(() => {
-        data && setIsLoading(false)
-        console.log(data)
-        data?.generalInfo && getImagesList()
-    }, [data])
-
-    const getImagesList = () => {
-        const listRef = ref(storage, `/${authUser?.uid}`)
-        listAll(listRef)
-            .then((res) => {
-                const imageLIst = res.items.map((itemRef) => itemRef?.name)
-                console.log(imageLIst)
-                const notUsedImages = imageLIst.filter(img => img !== data?.generalInfo?.imageName)
-                console.log(notUsedImages)
-                console.log(notUsedImages?.length > 0)
-                notUsedImages?.length > 0 && deleteUnusedImages(notUsedImages)
-            }).catch((error) => {
-            console.log(error)
-            // Uh-oh, an error occurred!
-        });
-    }
-
+    console.log('userId', userId)
     const deleteUnusedImages = (arr) => {
         console.log(arr)
         arr.forEach(item => deleteImageFromStorage(item))
     }
+    const name = useGetInfo(setIsLoading, setData, authUser?.uid, data, deleteUnusedImages)
+    console.log('name', name)
+    // useEffect(() => {
+    //     setIsLoading(true)
+    //     // addInfo();
+    //     getInfo();
+    //
+    // }, [])
+
+    // useEffect(() => {
+    //     data && setIsLoading(false)
+    //     console.log(data)
+    //     data?.generalInfo && getImagesList()
+    // }, [data])
+
+    // const getImagesList = () => {
+    //     const listRef = ref(storage, `/${authUser?.uid}`)
+    //     listAll(listRef)
+    //         .then((res) => {
+    //             const imageLIst = res.items.map((itemRef) => itemRef?.name)
+    //             console.log(imageLIst)
+    //             const notUsedImages = imageLIst.filter(img => img !== data?.generalInfo?.imageName)
+    //             console.log(notUsedImages)
+    //             console.log(notUsedImages?.length > 0)
+    //             notUsedImages?.length > 0 && deleteUnusedImages(notUsedImages)
+    //         }).catch((error) => {
+    //         console.log(error)
+    //         // Uh-oh, an error occurred!
+    //     });
+    // }
+
+
 
     const handleSignOut = async () => {
         try {
@@ -76,13 +83,13 @@ const UserHOC = ({Component}) => {
     }
 
     //to get data from collection
-    const getInfo = () => {
-        onSnapshot(collectionRef, (snapshot) => {
-            const data = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
-            console.log('data[0]',data)
-            setData(data[0])
-        })
-    }
+    // const getInfo = () => {
+    //     onSnapshot(collectionRef, (snapshot) => {
+    //         const data = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+    //         console.log('data[0]', data)
+    //         setData(data[0])
+    //     })
+    // }
 
     //to update or add the collection
     const updateInfo = async (generalInfo) => {
@@ -90,7 +97,7 @@ const UserHOC = ({Component}) => {
         const docRef = doc(db, authUser?.uid, data?.id)
         await setDoc(docRef, {
             ...data,
-            generalInfo:{
+            generalInfo: {
                 ...generalInfo,
                 ...newImage
             }
@@ -115,8 +122,8 @@ const UserHOC = ({Component}) => {
                 console.log("File deleted")
                 setPreviousImageName('')
                 setNewImage({})
-            } )
-            .catch((e) => console.log("File delete Error") )
+            })
+            .catch((e) => console.log("File delete Error"))
     }
     const handleFileUpload = async (file) => {
         setUploading(true);
@@ -129,12 +136,12 @@ const UserHOC = ({Component}) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                 console.log(progress)
             },
-            (error)=>{
+            (error) => {
                 console.log(error)
                 setUploading(false);
                 setFileInfo('')
             },
-            ()=>{
+            () => {
                 getDownloadURL(uploadData.snapshot.ref)
                     .then(url => {
                         console.log(url)
@@ -146,24 +153,27 @@ const UserHOC = ({Component}) => {
                         })
                     })
             }
-
-    )
+        )
     }
 
-    return <Component
-        isEditMode={isEditMode}
-        handleSignOut={handleSignOut}
-        setIsEditMOde={setIsEditMOde}
-        addInfo={addInfo}
-        data={data}
-        isLoading={isLoading}
-        handleGIEdit={updateInfo}
-        deleteInfo={deleteInfo}
-        handleFileUpload={handleFileUpload}
-        setFileInfo={setFileInfo}
-        fileInfo={fileInfo}
-        uploading={uploading}
-    />
+    const context = {
+        isEditMode,
+        handleSignOut,
+        setIsEditMOde,
+        addInfo,
+        data,
+        isLoading,
+        handleGIEdit:updateInfo,
+        deleteInfo,
+        handleFileUpload,
+        setFileInfo,
+        fileInfo,
+        uploading,
+    }
+
+    return <UserHOCContext.Provider value={context}>
+        <Component />
+    </UserHOCContext.Provider>
 }
 
 export default UserHOC;

@@ -1,10 +1,9 @@
-import {useEffect} from "react";
+import {useEffect, useContext} from "react";
 import {useLocation, useParams, useNavigate, Link} from "react-router-dom";
 import {AppRoutes} from "../../common/AppRoutes.jsx";
-import {onAuthStateChanged} from "firebase/auth";
-import {auth} from "../../firebase";
 import DemoUser from "../Mentor/components/DEmo component/DemoUser";
 import EditUser from "../Mentor/components/EditUSercomponent/EditUser";
+import {UserHOCContext} from "../Mentor/components/User/UserHOC";
 
 export const mockData = {
     generalInfo: {
@@ -46,7 +45,16 @@ export const mockData = {
     },
 }
 
-const User = ({setFileInfo, uploading, fileInfo, handleSignOut, handleFileUpload, deleteInfo, isEditMode, setIsEditMOde, addInfo, data, isLoading, handleGIEdit}) => {
+const User = () => {
+    const {
+        handleSignOut,
+        deleteInfo,
+        isEditMode,
+        setIsEditMOde,
+        data,
+        isLoading,
+    } = useContext(UserHOCContext);
+
     // useEffect(() => {
     //     addInfo();
     // }, [])
@@ -71,19 +79,11 @@ const User = ({setFileInfo, uploading, fileInfo, handleSignOut, handleFileUpload
         <hr/>
 
         {isEditMode && data
-            ? <EditUser
-                addInfo={addInfo}
-                data={data}
-                handleGIEdit={handleGIEdit}
-                handleFileUpload={handleFileUpload}
-                setFileInfo={setFileInfo}
-                fileInfo={fileInfo}
-                uploading={uploading}
-            />
+            ? <EditUser/>
             : isLoading
                 ? <h1>Loading</h1>
                 : data
-                    ? <DemoUser data={data} isLoading={isLoading}/>
+                    ? <DemoUser />
                     : <h1>No data</h1>}
 
     </div>

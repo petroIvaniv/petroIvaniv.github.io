@@ -1,6 +1,7 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import {Loader, Uploader, useToaster} from "rsuite";
 import AvatarIcon from '@rsuite/icons/legacy/Avatar';
+import {UserHOCContext} from "../User/UserHOC";
 
 function previewFile(file, callback) {
     const reader = new FileReader();
@@ -11,7 +12,9 @@ function previewFile(file, callback) {
 }
 
 
-const EditUser = ({setFileInfo, uploading, fileInfo, data, handleGIEdit, handleFileUpload}) => {
+const EditUser = () => {
+    const {setFileInfo, uploading, fileInfo, data, handleGIEdit, handleFileUpload} = useContext(UserHOCContext);
+
     const [formValue, setFormValue] = useState(data.generalInfo)
     console.log(formValue)
     const handleInputChange = (key, value) =>{
