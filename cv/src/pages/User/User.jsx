@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {useLocation, useParams, useNavigate} from "react-router-dom";
+import {useLocation, useParams, useNavigate, Link} from "react-router-dom";
 import {AppRoutes} from "../../common/AppRoutes.jsx";
 import {onAuthStateChanged} from "firebase/auth";
 import {auth} from "../../firebase";
@@ -58,7 +58,7 @@ const User = ({setFileInfo, uploading, fileInfo, handleSignOut, handleFileUpload
         // authUser?.id !== userId && navigate(AppRoutes.MAIN)
     }, [])
     return <div>
-        <h1>USER ID</h1>
+        <Link to={AppRoutes.MAIN}>to main</Link>
         <button onClick={handleSignOut}>SignOut</button>
         <button onClick={deleteInfo}>DELETE !!!</button>
         <button
