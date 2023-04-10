@@ -24,6 +24,7 @@ const UserHOC = ({Component}) => {
 
     useEffect(() => {
         setIsLoading(true)
+        // addInfo();
         getInfo();
 
     }, [])
@@ -55,8 +56,6 @@ const UserHOC = ({Component}) => {
         arr.forEach(item => deleteImageFromStorage(item))
     }
 
-
-
     const handleSignOut = async () => {
         try {
             await signOut(auth);
@@ -80,6 +79,7 @@ const UserHOC = ({Component}) => {
     const getInfo = () => {
         onSnapshot(collectionRef, (snapshot) => {
             const data = snapshot.docs.map((doc) => ({...doc.data(), id: doc.id}))
+            console.log('data[0]',data)
             setData(data[0])
         })
     }

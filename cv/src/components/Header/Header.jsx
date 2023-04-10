@@ -20,7 +20,7 @@ const Header = () => {
             <br/>
             <Link to={AppRoutes.ADMIN}> ADMIN</Link>
             <Link to={AppRoutes.LOGIN}> LOGIN</Link>
-            <Link to={`/user/${authUser?.id}`}> USER</Link>
+            <Link to={`/user/${authUser?.uid}`}> USER</Link>
         </div>
     )
 }
