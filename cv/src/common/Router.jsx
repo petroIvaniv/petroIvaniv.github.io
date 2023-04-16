@@ -83,7 +83,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: AppRoutes.YEVHEN,
-                element: <Yevhen />
+                element: <Yevhen form={true}/>
             },
             {
                 path: AppRoutes.MENTOR,
