@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import { CharacterApi } from "../../../api/api";
 import { LocationApi } from "../../../api/api";
 import { Pagination } from 'rsuite';
+import { useDispatch, useSelector } from "react-redux";
+import { yevhenAction } from "../../../redux/actions/yevhenAction";
 
 
 const AxiosPagination = ({Component}) => {
+    const dispatch = useDispatch();
+    const locations = useSelector((store) => store.yevhen.results);
+    const info = useSelector((store) => store.yevhen.info);
 
-    const [users, setUsers] = useState([]);
-    const [info, setInfo] = useState({});
-    const [locations, setLocation] = useState([]);
+    // const [users, setUsers] = useState([]);
+    // const [info, setInfo] = useState({});
+    // const [locations, setLocation] = useState([]);
     const [activePage, setActivePage] = useState(1);
 
     const handleClick = (user) => alert(user.name);
@@ -41,10 +46,13 @@ const AxiosPagination = ({Component}) => {
         try {
             // const {data} = await CharacterApi.getUsers(activePage);
             const {data} = await LocationApi.getLocation(activePage);
+
+            dispatch(yevhenAction.setLocation(data.results));
+            dispatch(yevhenAction.setInfo(data.info));
+
             // setUsers(data.results);
-            setLocation(data.results);
-            setInfo(data.info);
-            console.log(data);
+            // setLocation(data.results);
+            // setInfo(data.info);
         }
         catch (e) {
 
