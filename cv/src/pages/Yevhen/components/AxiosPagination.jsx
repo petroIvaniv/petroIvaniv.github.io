@@ -3,7 +3,7 @@ import { CharacterApi } from "../../../api/api";
 import { LocationApi } from "../../../api/api";
 import { Pagination } from 'rsuite';
 import { useDispatch, useSelector } from "react-redux";
-import { yevhenAction } from "../../../redux/actions/yevhenAction";
+import { universalGetUsersThunk, yevhenAction } from "../../../redux/actions/yevhenAction";
 
 
 const AxiosPagination = ({Component}) => {
@@ -17,6 +17,9 @@ const AxiosPagination = ({Component}) => {
     const [activePage, setActivePage] = useState(1);
 
     const handleClick = (user) => alert(user.name);
+
+
+    const universalGetUsers = (activePage) => dispatch(universalGetUsersThunk(activePage))
     
 
     // const getUsers = async () => {
@@ -42,22 +45,23 @@ const AxiosPagination = ({Component}) => {
     // }
 
     //універсальна ф-я замість getUsers і getNextPage зверху
-    const universalGetUsers = async () => {
-        try {
-            // const {data} = await CharacterApi.getUsers(activePage);
-            const {data} = await LocationApi.getLocation(activePage);
+    // const universalGetUsers = async () => {
+    //     try {
+    //         // const {data} = await CharacterApi.getUsers(activePage);
+    //         const {data} = await LocationApi.getLocation(activePage);
 
-            dispatch(yevhenAction.setLocation(data.results));
-            dispatch(yevhenAction.setInfo(data.info));
+    //         // dispatch(yevhenAction.setLocation(data.results));
+    //         // dispatch(yevhenAction.setInfo(data.info));
+    //         dispatch(yevhenAction.setData(data));
 
-            // setUsers(data.results);
-            // setLocation(data.results);
-            // setInfo(data.info);
-        }
-        catch (e) {
+    //         // setUsers(data.results);
+    //         // setLocation(data.results);
+    //         // setInfo(data.info);
+    //     }
+    //     catch (e) {
 
-        }
-    }
+    //     }
+    // }
 
     useEffect(()=>{
         // getUsers();
@@ -73,7 +77,7 @@ const AxiosPagination = ({Component}) => {
 
     useEffect(()=>{
         // activePage === 1 ? getUsers() : getNextPage();
-        universalGetUsers();
+        universalGetUsers(activePage);
     }, [activePage])
 
 

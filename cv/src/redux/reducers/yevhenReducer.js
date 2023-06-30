@@ -19,6 +19,12 @@ const yevhenReducer = (state = initialState, action) => {
                 ...state,
                 info: action.info,
             }
+        case yevhenActionTypes.SET_DATA:
+            return{
+                ...state,
+                results: action.data.results,
+                info: action.data.info,
+        }
         default:
             return state;
     }
