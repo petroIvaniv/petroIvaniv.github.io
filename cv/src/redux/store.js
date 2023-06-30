@@ -5,13 +5,15 @@ import apiCount from "./reducers/apiCountReducer.js";
 import thunk from "redux-thunk";
 import {andriyReducer} from "./reducers/andriyReducer";
 import { orestReducer } from "./reducers/orestReducer.js";
+import yevhenReducer from "./reducers/yevhenReducer.js";
 
 const rootReducer = combineReducers({
     mentor: rickMortyReducer,
     apiCount,
     // yaryna: yarynaReducer,
     andriy: andriyReducer,
-    orest: orestReducer
+    orest: orestReducer,
+    yevhen: yevhenReducer
 })
 
 const composeEnhancers = composeWithDevToolsDevelopmentOnly({
